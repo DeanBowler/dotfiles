@@ -1,0 +1,31 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Dean Bowler
+  email = dean.bowler@gmail.com
+[core]
+  editor = code --wait
+[alias]
+  lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  blg = log origin/develop..HEAD --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ch = "!git reflog | grep \"checkout:\" | grep -v \"to develop\" | awk -F \"checkout: moving from \" '{print $2}' | less"
+  amend = commit --amend --no-edit
+  afp = "!git amend; git fp"
+  fp = push --force
+  fap = "!git fetch; git pull"
+  rod = rebase origin/develop
+  rood = rebase --onto origin/develop
+  frod = "!git fetch; git rod"
+  frood = "!git fetch; git rood"
+  re1 = "!git reset --soft HEAD~1"
+  wip = commit -am WIP
+  st = status -sb
+  rc = rebase --continue
+  ra = rebase --abort
+  cb = checkout -b
+  br = branch -m
+  up = "!git remote update -p; git merge --ff-only @{u}"
+  dup = "!git checkout develop; git up"
+  cbd = "!git dup; git cb"
+  cam = !git commit -a -m
+  ca = !git commit -a
+
