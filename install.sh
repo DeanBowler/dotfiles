@@ -12,19 +12,19 @@ if test ! $(which brew); then
 fi
 
 echo "Symlinking .zshrc"
-if [[ test .zshrc - L ]]; then
+if [[ -L $HOME/.zshrc ]]; then
+  echo ".zshrc already linked"
+else
   rm -rf $HOME/.zshrc
   ln -s .zshrc $HOME/.zshrc
-else
-  echo ".zshrc already linked"
 fi
 
 echo "Symlinking .gitconfig"
-if [[ test .gitconfig - L ]]; then
+if [[ -L $HOME/.gitconfig ]]; then
+  echo ".zshrc already linked"
+else
   rm -rf $HOME/.gitconfig
   ln -s .gitconfig $HOME/.gitconfig
-else
-  echo ".zshrc already linked"
 fi
 
 # Update Homebrew recipes

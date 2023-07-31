@@ -53,6 +53,10 @@ cask "iterm2" # Better terminal
 cask "slack" # Team chat
 cask "miro" # Whiteboard
 cask "dbeaver-community" # Postgres GUI
+cask "malwarebytes" # Malware protection
+
+# App Store
+# mas "WireGuard", id: 1451685025
 
 # I don't know why I had this stuff installed
 

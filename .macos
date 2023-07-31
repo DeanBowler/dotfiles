@@ -67,6 +67,9 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
 # Show the ~/Library folder
 chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
 # Show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
@@ -129,3 +132,11 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "Europe/London" > /dev/null
+
+
+## iTerm2 ##
+
+open "./CustomDark.itermcolors"
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
