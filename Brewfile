@@ -10,6 +10,7 @@ tap "sdkman/tap"
 
 # Installing fonts
 cask "font-fira-code-nerd-font"
+cask "font-fira-code"
 cask "font-hack-nerd-font"
 
 # Apps
