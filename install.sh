@@ -11,21 +11,17 @@ if test ! $(which brew); then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-echo "Symlinking .zshrc"
+echo "Copying .zshrc"
 if [[ -L $HOME/.zshrc ]]; then
   echo ".zshrc already linked"
 else
   rm -rf $HOME/.zshrc
-  ln -s .zshrc $HOME/.zshrc
+  # ln -s .zshrc $HOME/.zshrc
+  cp .zshrc $HOME/.zshrc
 fi
 
-echo "Symlinking .gitconfig"
-if [[ -L $HOME/.gitconfig ]]; then
-  echo ".zshrc already linked"
-else
-  rm -rf $HOME/.gitconfig
-  ln -s .gitconfig $HOME/.gitconfig
-fi
+echo "Refreshing .zshrc"
+source $HOME/.zshrc
 
 # Update Homebrew recipes
 echo "Updating Homebrew"
@@ -43,10 +39,10 @@ npm install -g yarn
 
 # Configure JDK
 echo "Installing JDK"
-sdk install java 11.0.17.zulu
+sdk install java 11.0.17-zulu
 
 # Set macOS preferences
 echo "Setting macOS preferences"
-touch ./.macos
+source ./.macos
 
 echo "Enjoy your new Mac!"
