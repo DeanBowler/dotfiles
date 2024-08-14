@@ -40,6 +40,10 @@ sudo pmset -c sleep 0
 # Set machine sleep to 5 minutes on battery
 sudo pmset -b sleep 5
 
+## Mail App ##
+
+## Disable inline attachments (they are a security risk)
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool yes
 
 ## Screen ##
 

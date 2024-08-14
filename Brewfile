@@ -12,18 +12,20 @@ tap "sdkman/tap"
 cask "font-fira-code-nerd-font"
 cask "font-fira-code"
 cask "font-hack-nerd-font"
+cask "font-raleway"
 
 # Apps
 cask "discord" # Chat
 cask "whatsapp" # Chat
 cask "spotify" # Gotta have music
-cask "bitwarden" # Password manager
+cask "1password" # Password manager
+cask "bitwarden" # Password manager (yes, I use two)
 cask "cron" # Better calendar
 cask "obsidian" # Better notes
 cask "react-native-debugger" # React Native debugging
 cask "google-chrome" # Better browser
 cask "figma" # Design
-cask "insomnia" # API testing
+cask "bruno" # API testing
 cask "visual-studio-code"
 cask "iterm2" # Better terminal
 cask "slack" # Team chat
@@ -48,7 +50,8 @@ brew "pigz" # Parallel gzip
 brew "neovim" # Better vim
 brew "awscli" # AWS CLI
 brew "starship" # Better shell prompt
-brew "sdkman-cli" # Java JDK + SDK management
+brew "sdkman/tap/sdkman-cli" # Java JDK + SDK management
+brew "terminal-notifier" # Notifications
 
 # Development
 brew "scrcpy" # Android screen mirroring
@@ -58,23 +61,3 @@ brew "volta" # Node version manager
 
 # App Store
 # mas "WireGuard", id: 1451685025
-
-# I don't know why I had this stuff installed
-
-# brew "libtiff"
-# brew "little-cms2"
-# brew "webp"
-# brew "jpeg-xl"
-# brew "aom"
-
-# brew "docutils"
-# brew "folly"
-# brew "edencommon"
-# brew "fizz"
-# brew "wangle"
-# brew "fbthrift"
-# brew "fb303"
-# brew "openjpeg"
-# brew "leptonica"
-# brew "tesseract"
-# brew "ffmpeg"

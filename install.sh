@@ -34,12 +34,12 @@ brew bundle --file ./Brewfile
 
 # Configure yarn
 echo "Configuring node"
-volta install node@18
+volta install node@20
 npm install -g yarn
 
 # Configure JDK
 echo "Installing JDK"
-sdk install java 11.0.17-zulu
+sdk install java 17.0.12-zulu
 
 # Set macOS preferences
 echo "Setting macOS preferences"
