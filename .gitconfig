@@ -6,14 +6,15 @@
   editor = code --wait
 [alias]
   lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  blg = log origin/develop..HEAD --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  ch = "!git reflog | grep \"checkout:\" | grep -v \"to develop\" | awk -F \"checkout: moving from \" '{print $2}' | less"
+  main-branch = "!git remote set-head origin --auto >/dev/null 2>&1; git symbolic-ref --short refs/remotes/origin/HEAD | sed 's@^origin/@@'"
+  blg = "!git log origin/$(git main-branch)..HEAD --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  ch = "!git reflog | grep \"checkout:\" | grep -v \"to $(git main-branch)\" | awk -F \"checkout: moving from \" '{print $2}' | less"
   amend = commit --amend --no-edit
   afp = "!git amend; git fp"
   fp = push --force
   fap = "!git fetch; git pull"
-  rod = rebase origin/develop
-  rood = rebase --onto origin/develop
+  rod = "!git rebase origin/$(git main-branch)"
+  rood = "!git rebase --onto origin/$(git main-branch)"
   frod = "!git fetch; git rod"
   frood = "!git fetch; git rood"
   re1 = "!git reset --soft HEAD~1"
@@ -24,7 +25,7 @@
   cb = checkout -b
   br = branch -m
   up = "!git remote update -p; git merge --ff-only @{u}"
-  dup = "!git checkout develop; git up"
+  dup = "!git checkout $(git main-branch); git up"
   cbd = "!git dup; git cb"
   cam = !git commit -a -m
   ca = !git commit -a

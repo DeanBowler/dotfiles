@@ -23,6 +23,14 @@ fi
 echo "Refreshing .zshrc"
 source $HOME/.zshrc
 
+echo "Linking .gitconfig"
+if [[ -L $HOME/.gitconfig ]]; then
+  echo ".gitconfig already linked"
+else
+  rm -rf $HOME/.gitconfig
+  ln -sf "$PWD/.gitconfig" $HOME/.gitconfig
+fi
+
 # Update Homebrew recipes
 echo "Updating Homebrew"
 brew update
@@ -32,17 +40,18 @@ echo "Installing dependencies"
 brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
-# Configure yarn
+# Configure node
 echo "Configuring node"
-volta install node@20
-npm install -g yarn
-
-# Configure JDK
-echo "Installing JDK"
-sdk install java 17.0.12-zulu
+volta install node@24
+volta install pnpm
+volta install yarn@4.7.0
 
 # Set macOS preferences
 echo "Setting macOS preferences"
 source ./.macos
+
+echo "Linking Ghostty config"
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+ln -sf "$PWD/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 
 echo "Enjoy your new Mac!"
